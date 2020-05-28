@@ -45,10 +45,10 @@ This program can achieve three major tasks:
   The spider chooses randomly amongst all non-visited links across all the webs.
 
 2. Run a page rank algorithm to determine the pages with highest importance
-  a) Run CocoPrank.py:
+   a) Run CocoPrank.py:
       Mac: python3 CocoPrank.py 
       Win: CocoPrank.py
-  b) Enter how many time you want to run the iteration
+   b) Enter how many time you want to run the iteration
       You can run sprank.py as many times as you like and it will simply refine
       the page rank the more times you run it.  You can even run sprank.py a few times
       and then go spider a few more pages sith spider.py and then run sprank.py
