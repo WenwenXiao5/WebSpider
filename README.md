@@ -30,65 +30,65 @@ This program can achieve three major tasks:
   Win: del spider.sqlite
   Win: spider.py
   
-  # Detailed Process ###
-  1. Crawl a web page and store the links within the webpage into a sqlite database
-    a) Run CocoSpider.py:
-        Mac: python3 CocoSpider.py 
-        Win: CocoSpider.py
-    b) Enter the url of the website you want to crawl
-    c) Enter how many pages you want to crawl
-    d) Hit "Return" to jump out of the command
-    
-    Now you have a spider2.sqlite database with all the web pages retrieved and the relationships between those webpages
-    
-    You can have multiple starting points in the same database - within the program these are called "webs".   
-    The spider chooses randomly amongst all non-visited links across all the webs.
-  
-  2. Run a page rank algorithm to determine the pages with highest importance
-    a) Run CocoPrank.py:
-        Mac: python3 CocoPrank.py 
-        Win: CocoPrank.py
-    b) Enter how many time you want to run the iteration
-        You can run sprank.py as many times as you like and it will simply refine
-        the page rank the more times you run it.  You can even run sprank.py a few times
-        and then go spider a few more pages sith spider.py and then run sprank.py
-        to converge the page ranks.
-        
-        For each iteration of the page rank algorithm it prints the average
-        change per page of the page rank.   The network initially is quite 
-        unbalanced and so the individual page ranks are changing wildly.
-        But in a few short iterations, the page rank converges.  You 
-        should run prank.py long enough that the page ranks converge.
+# Detailed Process ###
+1. Crawl a web page and store the links within the webpage into a sqlite database
+  a) Run CocoSpider.py:
+      Mac: python3 CocoSpider.py 
+      Win: CocoSpider.py
+  b) Enter the url of the website you want to crawl
+  c) Enter how many pages you want to crawl
+  d) Hit "Return" to jump out of the command
 
-      If you want to restart the Page Rank calculations without re-spidering the 
-      web pages, you can use spreset.py
+  Now you have a spider2.sqlite database with all the web pages retrieved and the relationships between those webpages
 
-      Mac: python3 spreset.py 
-      Win: spreset.py 
+  You can have multiple starting points in the same database - within the program these are called "webs".   
+  The spider chooses randomly amongst all non-visited links across all the webs.
 
-      All pages set to a rank of 1.0
-      
-  3. Output the results or use a visualization tool called d3.js to see the ralationships of web pages
-    a) If you want to just dump the content from the spider2.sqlite database:
-      run spdump.py as follows:
+2. Run a page rank algorithm to determine the pages with highest importance
+  a) Run CocoPrank.py:
+      Mac: python3 CocoPrank.py 
+      Win: CocoPrank.py
+  b) Enter how many time you want to run the iteration
+      You can run sprank.py as many times as you like and it will simply refine
+      the page rank the more times you run it.  You can even run sprank.py a few times
+      and then go spider a few more pages sith spider.py and then run sprank.py
+      to converge the page ranks.
 
-      Mac: python3 spdump.py 
-      Win: spdump.py
-  
-      This shows the number of incoming links, the old page rank, the new page
-      rank, the id of the page, and the url of the page.  The spdump.py program
-      only shows pages that have at least one incoming link to them.
+      For each iteration of the page rank algorithm it prints the average
+      change per page of the page rank.   The network initially is quite 
+      unbalanced and so the individual page ranks are changing wildly.
+      But in a few short iterations, the page rank converges.  You 
+      should run prank.py long enough that the page ranks converge.
 
-    b) If you want to visualize the current top pages and the relationships between web pages:
-      run spjson.py to write the pages out in JSON format to be viewed in a web browser
+    If you want to restart the Page Rank calculations without re-spidering the 
+    web pages, you can use spreset.py
 
-      Mac: python3 spjson.py 
-      Win: spjson.py 
-      
-      Enter the number of nodes you want to see in the visualization tool.
-      
-      You can view this data by opening the file force.html in your web browser.  
-      This shows an automatic layout of the nodes and links.  You can click and 
-      drag any node and you can also double click on a node to find the URL
-      that is represented by the node.
+    Mac: python3 spreset.py 
+    Win: spreset.py 
+
+    All pages set to a rank of 1.0
+
+3. Output the results or use a visualization tool called d3.js to see the ralationships of web pages
+  a) If you want to just dump the content from the spider2.sqlite database:
+    run spdump.py as follows:
+
+    Mac: python3 spdump.py 
+    Win: spdump.py
+
+    This shows the number of incoming links, the old page rank, the new page
+    rank, the id of the page, and the url of the page.  The spdump.py program
+    only shows pages that have at least one incoming link to them.
+
+  b) If you want to visualize the current top pages and the relationships between web pages:
+    run spjson.py to write the pages out in JSON format to be viewed in a web browser
+
+    Mac: python3 spjson.py 
+    Win: spjson.py 
+
+    Enter the number of nodes you want to see in the visualization tool.
+
+    You can view this data by opening the file force.html in your web browser.  
+    This shows an automatic layout of the nodes and links.  You can click and 
+    drag any node and you can also double click on a node to find the URL
+    that is represented by the node.
 
